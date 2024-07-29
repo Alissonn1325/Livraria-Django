@@ -9,15 +9,11 @@ class Livro(models.Model):
 
     from .categoria import Categoria
 
-    categoria = models.ForeignKey(
-        Categoria, on_delete=models.PROTECT, related_name="livros", null=True, blank=True
-    )
+    categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT, related_name="livros", null=True, blank=True)
 
     from .editora import Editora
 
-    editora = models.ForeignKey(
-        Editora, on_delete=models.PROTECT, related_name="livros", null=True, blank=True
-    )
+    editora = models.ForeignKey(Editora, on_delete=models.PROTECT, related_name="livros", null=True, blank=True)
 
     def __str__(self):
         return f"{self.titulo} | ({self.quantidade}) | {self.preco}"

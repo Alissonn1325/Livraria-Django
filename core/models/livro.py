@@ -12,6 +12,9 @@ class Livro(models.Model):
     categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT, related_name="livros", null=True, blank=True)
     editora = models.ForeignKey(Editora, on_delete=models.PROTECT, related_name="livros", null=True, blank=True)
     autores = models.ManyToManyField(Autor, related_name="livros")
+    # coautor = models.ForeignKey(Autor, on_delete=models.PROTECT, related_name="livros_coautor", blank=True, null=True)
+
+    autores = models.ManyToManyField(Autor, related_name="livros")
 
     def __str__(self):
         return f"{self.titulo} | ({self.quantidade}) | {self.preco}"

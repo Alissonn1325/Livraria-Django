@@ -1,7 +1,8 @@
 from django.db import models
-from .editora import Editora
-from .categoria import Categoria
+
 from .autor import Autor
+from .categoria import Categoria
+from .editora import Editora
 
 
 class Livro(models.Model):
@@ -12,7 +13,7 @@ class Livro(models.Model):
     categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT, related_name="livros", null=True, blank=True)
     editora = models.ForeignKey(Editora, on_delete=models.PROTECT, related_name="livros", null=True, blank=True)
     autores = models.ManyToManyField(Autor, related_name="livros")
-    # coautor = models.ForeignKey(Autor, on_delete=models.PROTECT, related_name="livros_coautor", blank=True, null=True)
+    # coautores = models.ForeignKey(Autor, on_delete=models.PROTECT, related_name="livros_coautor", blank=True, null=True)
 
     autores = models.ManyToManyField(Autor, related_name="livros")
 

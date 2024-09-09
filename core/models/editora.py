@@ -8,4 +8,4 @@ class Editora(models.Model):
     cidade = models.CharField(max_length=200)
 
     def __str__(self):
-        return f"{self.nome} ({self.id})"
+        return f"{self.nome} | {self.email} | {self.cidade} | ({self.id})"

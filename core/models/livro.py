@@ -18,7 +18,5 @@ class Livro(models.Model):
     capa = models.ForeignKey(Image, related_name="+", on_delete=models.CASCADE, null=True, blank=True, default=None)
     # coautores = models.ForeignKey(Autor, on_delete=models.PROTECT, related_name="livros_coautor", blank=True, null=True)
 
-    autores = models.ManyToManyField(Autor, related_name="livros")
-
     def __str__(self):
         return f"{self.titulo} | ({self.quantidade}) | {self.preco} | {self.autores}"
